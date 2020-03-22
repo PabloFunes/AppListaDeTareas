@@ -49,19 +49,19 @@ http.createServer((req, res) => {
             res.end(html);
         });
     } else if (req.url.match(/.css$/)) {
-        const reqPath = path.join(__dirname, 'public', req.url);
+        const reqPath = path.join(__dirname, 'css', req.url);
         const fileStream = fs.createReadStream(reqPath, 'UTF-8');
 
         res.writeHead(200, { 'Content-Type': 'text/css' });
         fileStream.pipe(res);
     } else if (req.url.match(/.js$/)) {
-        const reqPath = path.join(__dirname, 'public', req.url);
+        const reqPath = path.join(__dirname, 'js', req.url);
         const fileStream = fs.createReadStream(reqPath, 'UTF-8');
 
         res.writeHead(200, { 'Content-Type': 'text/javascript' });
         fileStream.pipe(res);
     } else if (req.url.match(/.jpg$/)) {
-        const reqPath = path.join(__dirname, 'public', req.url);
+        const reqPath = path.join(__dirname, 'img', req.url);
         const fileStream = fs.createReadStream(reqPath);
 
         res.writeHead(200, { 'Content-Type': 'image/jpg' });
